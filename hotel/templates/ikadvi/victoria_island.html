@@ -1,0 +1,202 @@
+{% extends 'ikadvi/base_vi.html' %}
+{% load static %}
+
+{% block title %}Ikad Hotel & Suite - Victoria Island{% endblock %}
+
+{% block content %}
+
+<!-- ===== HERO ===== -->
+<section class="vi-hero text-light py-5 position-relative">
+	<img src="{% static 'images/ikadvi/ikadvi (3).jpg' %}" alt="Ikad Hotel front" class="vi-hero-bg">
+	<div class="overlay"></div>
+
+		<div class="container position-relative text-center" style="z-index:2;">
+			<h1 class="fw-bold mb-3">Ikad Hotel & Suites — Victoria Island</h1>
+			<p class="lead text-light">Luxury stays, bespoke services, and exceptional experiences in the heart of Lagos.</p>
+			
+			<!-- Booking Success Message -->
+			<div id="bookingSuccessMessage" class="alert alert-success mb-4 {% if not request.COOKIES.booking_message %}d-none{% endif %}">
+				<i class="fas fa-check-circle me-2"></i>
+				<span>{{ request.COOKIES.booking_message }}</span>
+			</div>
+
+			<!-- Booking Form -->
+			<div class="booking-form mt-4 p-4 rounded-4">
+				<form class="row g-4 justify-content-center" id="bookingForm" action="{% url 'vi_booking' %}" method="GET">
+					<div class="col-lg-3 col-md-6">
+						<label for="checkIn" class="form-label">
+							<i class="fas fa-calendar-alt booking-icon"></i>Check In
+						</label>
+						<div class="input-group">
+							<input type="date" class="form-control" id="checkIn" name="checkin" required>
+							<span class="input-group-text bg-transparent border-start-0">
+								<i class="fas fa-chevron-down text-muted"></i>
+							</span>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6">
+						<label for="checkOut" class="form-label">
+							<i class="fas fa-calendar-check booking-icon"></i>Check Out
+						</label>
+						<div class="input-group">
+							<input type="date" class="form-control" id="checkOut" name="checkout" required>
+							<span class="input-group-text bg-transparent border-start-0">
+								<i class="fas fa-chevron-down text-muted"></i>
+							</span>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-6">
+						<label for="guests" class="form-label">
+							<i class="fas fa-user-friends booking-icon"></i>Guests
+						</label>
+						<div class="input-group">
+							<select class="form-select" id="guests" name="guests" required>
+								<option value="1">1 Guest</option>
+								<option value="2" selected>2 Guests</option>			
+							</select>
+							<span class="input-group-text bg-transparent border-start-0">
+								<i class="fas fa-chevron-down text-muted"></i>
+							</span>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-6">
+						<label for="room_type" class="form-label">
+							<i class="fas fa-bed booking-icon"></i>Room Type
+						</label>
+						<div class="input-group">
+							<select class="form-select" id="room_type" name="room_type" required>
+								<option value="Studio" data-price="45000">Studio</option>
+								<option value="Elite" data-price="60000">Elite</option>
+								<option value="Premier" data-price="80000">Premier</option>
+								<option value="Luxury" data-price="100000">Luxury</option>
+								<option value="Master" data-price="150000">Master</option>
+							</select>
+							<span class="input-group-text bg-transparent border-start-0">
+								<i class="fas fa-chevron-down text-muted"></i>
+							</span>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-12 d-flex align-items-end">
+						<button type="submit" class="btn btn-book w-100">
+							<i class="fas fa-calendar-check me-2"></i>Book Now
+						</button>
+					</div>
+				</form>
+			</div>
+
+			<!-- Room Preview Card (shows when room type is selected) -->
+			<div id="roomPreview" class="mt-4 d-none">
+				<div class="card bg-white bg-opacity-95 shadow">
+					<div class="card-body p-4">
+						<div class="d-flex align-items-center">
+							<i class="fas fa-info-circle text-primary me-3 fs-4"></i>
+							<div>
+								<h5 class="card-title mb-1" id="previewRoomType">Selected Room</h5>
+								<p class="card-text mb-0" id="previewPrice">Price per night</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><!-- ===== SERVICES (AMENITIES) ===== -->
+<section class="container mt-5">
+	<h2 class="fw-bold mb-3">Services</h2>
+	<div class="hotel-amenities-overview default-container-xl">
+		<ul class="hotel-amenities-overview__container">
+			<li class="hotel-amenities-overview-card"><i class="bi bi-bag"></i><div><p class="hotel-amenities-overview-card__title">Luggage storage</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-shop"></i><div><p class="hotel-amenities-overview-card__title">On-site dining</p><p class="hotel-amenities-overview-card__subtitle">On-site restaurant(s)</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-universal-access"></i><div><p class="hotel-amenities-overview-card__title">Accessibility</p><p class="hotel-amenities-overview-card__subtitle">Accessibility features available</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-briefcase"></i><div><p class="hotel-amenities-overview-card__title">Executive business lounge</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-bus-front"></i><div><p class="hotel-amenities-overview-card__title">Airport shuttle</p><p class="hotel-amenities-overview-card__subtitle">Shuttle bus</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-cup-straw"></i><div><p class="hotel-amenities-overview-card__title">Bar</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-basket2"></i><div><p class="hotel-amenities-overview-card__title">Breakfast buffet</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-wifi"></i><div><p class="hotel-amenities-overview-card__title">Free Wi-Fi</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-bag-heart"></i><div><p class="hotel-amenities-overview-card__title">Grab &amp; Go Breakfast</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-safe"></i><div><p class="hotel-amenities-overview-card__title">Safety deposit box</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-arrow-repeat"></i><div><p class="hotel-amenities-overview-card__title">Laundry service</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-fridge-fill"></i><div><p class="hotel-amenities-overview-card__title">Minibar or fridge</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-slash-circle"></i><div><p class="hotel-amenities-overview-card__title">Non-smoking</p><p class="hotel-amenities-overview-card__subtitle">Non-smoking rooms available</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-parking"></i><div><p class="hotel-amenities-overview-card__title">Parking</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-bell"></i><div><p class="hotel-amenities-overview-card__title">Room service</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-leaf"></i><div><p class="hotel-amenities-overview-card__title">Sustainable Stays</p><span class="hotel-amenities-overview-card__subtitle">Hotel Sustainability Basics verified</span></div></li>
+		</ul>
+	</div>
+</section>
+
+<!-- ===== ROOM CATEGORIES SECTION ===== -->
+<section class="container my-5">
+	<div class="text-center mb-5">
+		<h2 class="fw-bold">Our Room Categories</h2>
+		<p class="text-muted">Choose from our range of beautifully designed rooms to match your style and comfort.</p>
+	</div>
+
+	<div class="row g-4">
+		<!-- Studio Room -->
+		<div class="col-md-4 col-lg-3">
+			<div class="card h-100 shadow-sm">
+				<img src="{% static 'images/ikadvi/luxury (1).jpg' %}" class="card-img-top" alt="Studio Room" style="height: 200px; object-fit: cover;">
+				<div class="card-body">
+					<h5 class="card-title fw-bold">Studio Room</h5>
+					<p class="card-text text-muted">₦45,000 / night</p>
+					<p class="card-text small">A cozy, modern space ideal for solo travelers or short stays, offering comfort and convenience.</p>
+					<a href="#" class="btn btn-outline-warning w-100">View Details</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Elite Room -->
+		<div class="col-md-4 col-lg-3">
+			<div class="card h-100 shadow-sm">
+				<img src="{% static 'images/ikadvi/elite (1).jpg' %}" class="card-img-top" alt="Elite Room" style="height: 200px; object-fit: cover;">
+				<div class="card-body">
+					<h5 class="card-title fw-bold">Elite Room</h5>
+					<p class="card-text text-muted">₦60,000 / night</p>
+					<p class="card-text small">A spacious, well-designed room with premium bedding and a calm ambiance for business or leisure.</p>
+					<a href="#" class="btn btn-outline-warning w-100">View Details</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Premier Room -->
+		<div class="col-md-4 col-lg-3">
+			<div class="card h-100 shadow-sm">
+				<img src="{% static 'images/ikadvi/premium (1).jpg' %}" class="card-img-top" alt="Premier Room" style="height: 200px; object-fit: cover;">
+				<div class="card-body">
+					<h5 class="card-title fw-bold">Premier Room</h5>
+					<p class="card-text text-muted">₦80,000 / night</p>
+					<p class="card-text small">Elegant decor and luxurious comfort with upgraded amenities and city views for an elevated experience.</p>
+					<a href="#" class="btn btn-outline-warning w-100">View Details</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Luxury Room -->
+		<div class="col-md-4 col-lg-3">
+			<div class="card h-100 shadow-sm">
+				<img src="{% static 'images/ikadvi/luxury (2).jpg' %}" class="card-img-top" alt="Luxury Room" style="height: 200px; object-fit: cover;">
+				<div class="card-body">
+					<h5 class="card-title fw-bold">Luxury Room</h5>
+					<p class="card-text text-muted">₦100,000 / night</p>
+					<p class="card-text small">A perfect blend of sophistication and comfort, featuring plush interiors and personalized service.</p>
+					<a href="#" class="btn btn-outline-warning w-100">View Details</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Master Suite -->
+		<div class="col-md-4 col-lg-3">
+			<div class="card h-100 shadow-sm">
+				<img src="{% static 'images/ikadvi/master (1).jpg' %}" class="card-img-top" alt="Master Suite" style="height: 200px; object-fit: cover;">
+				<div class="card-body">
+					<h5 class="card-title fw-bold">Master Suite</h5>
+					<p class="card-text text-muted">₦150,000 / night</p>
+					<p class="card-text small">Our grandest suite with a private lounge and exquisite furnishings — a home of ultimate luxury.</p>
+					<a href="#" class="btn btn-outline-warning w-100">View Details</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}

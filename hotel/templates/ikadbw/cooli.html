@@ -1,0 +1,141 @@
+{% extends 'ikadbw/base_bw.html' %}
+{% load static %}
+
+{% block title %}Ikad Hotel & Suite - Cooli{% endblock %}
+
+{% block content %}
+
+<!-- ===== HERO ===== -->
+<section class="bw-hero text-light py-5 position-relative">
+    <img src="{% static 'images/coolio/coolio (1).jpg' %}" alt="Ikad Hotel Cooli front" class="bw-hero-bg">
+    <div class="overlay"></div>
+
+    <div class="container position-relative text-center" style="z-index:2;">
+        <h1 class="fw-bold mb-3">Ikad Hotel & Suites — Cooli</h1>
+        <p class="lead text-light">Comfortable stays, friendly service, and great value in the heart of Cooli.</p>
+
+        <!-- Booking Success Message -->
+        <div id="bookingSuccessMessage" class="alert alert-success mb-4 {% if not request.COOKIES.booking_message %}d-none{% endif %}">
+            <i class="fas fa-check-circle me-2"></i>
+            <span>{{ request.COOKIES.booking_message }}</span>
+        </div>
+        
+        <!-- Booking Form -->
+        <div class="booking-form mt-4 p-4 rounded shadow" style="background: rgba(0,0,0,0.7);">
+            <form class="row g-3 justify-content-center" id="bookingForm" action="{% url 'bw_booking' %}" method="GET">
+                <div class="col-md-3">
+                    <label for="checkIn" class="form-label text-light">Check In</label>
+                    <input type="date" class="form-control" id="checkIn" name="checkin" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="checkOut" class="form-label text-light">Check Out</label>
+                    <input type="date" class="form-control" id="checkOut" name="checkout" required>
+                </div>
+                <div class="col-md-2">
+                    <label for="guests" class="form-label text-light">Guests</label>
+                    <select class="form-select" id="guests" name="guests" required>
+                        <option value="1">1 Guest</option>
+                        <option value="2" selected>2 Guests</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label for="rooms" class="form-label text-light">Rooms</label>
+                    <select class="form-select" id="rooms" name="rooms" required>
+                        <option value="1" selected>Deluxe</option>
+                        <option value="2">Standard</option>
+                    </select>
+                </div>
+                <div class="col-md-2 d-flex align-items-end">
+                    <button type="submit" class="btn btn-warning w-100">Book Now</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SERVICES (AMENITIES) ===== -->
+<section class="container mt-5" id="amenities">
+    <h2 class="fw-bold mb-3">Services</h2>
+    <div class="hotel-amenities-overview default-container-xl">
+        <ul class="hotel-amenities-overview__container">
+            <li class="hotel-amenities-overview-card"><i class="bi bi-person-badge"></i><div><p class="hotel-amenities-overview-card__title">Concierge service</p></div></li>
+            <li class="hotel-amenities-overview-card"><i class="bi bi-heart-pulse"></i><div><p class="hotel-amenities-overview-card__title">Fitness center</p></div></li>
+            <li class="hotel-amenities-overview-card"><i class="bi bi-bag"></i><div><p class="hotel-amenities-overview-card__title">Luggage storage</p></div></li>
+            <li class="hotel-amenities-overview-card"><i class="bi bi-building"></i><div><p class="hotel-amenities-overview-card__title">Meeting facilities</p><p class="hotel-amenities-overview-card__subtitle">Meeting facilities/social space</p></div></li>
+            <li class="hotel-amenities-overview-card"><i class="bi bi-shop"></i><div><p class="hotel-amenities-overview-card__title">On-site dining</p><p class="hotel-amenities-overview-card__subtitle">On-site restaurant(s)</p></div></li>
+            <li class="hotel-amenities-overview-card"><i class="bi bi-snow"></i><div><p class="hotel-amenities-overview-card__title">Outdoor pool</p></div></li>
+            <li class="hotel-amenities-overview-card"><i class="bi bi-universal-access"></i><div><p class="hotel-amenities-overview-card__title">Accessibility</p><p class="hotel-amenities-overview-card__subtitle">Accessibility features available</p></div></li>
+            <li class="hotel-amenities-overview-card"><i class="bi bi-briefcase"></i><div><p class="hotel-amenities-overview-card__title">Executive business lounge</p></div></li>
+            <li class="hotel-amenities-overview-card"><i class="bi bi-spa"></i><div><p class="hotel-amenities-overview-card__title">Spa</p><p class="hotel-amenities-overview-card__subtitle">On-site spa and wellness facility</p></div></li>
+            <li class="hotel-amenities-overview-card"><i class="bi bi-bus-front"></i><div><p class="hotel-amenities-overview-card__title">Airport shuttle</p><p class="hotel-amenities-overview-card__subtitle">Shuttle bus</p></div></li>
+            <li class="hotel-amenities-overview-card"><i class="bi bi-cup-straw"></i><div><p class="hotel-amenities-overview-card__title">Bar</p></div></li>
+            <li class="hotel-amenities-overview-card"><i class="bi bi-basket2"></i><div><p class="hotel-amenities-overview-card__title">Breakfast buffet</p></div></li>
+            <li class="hotel-amenities-overview-card"><i class="bi bi-arrow-clockwise"></i><div><p class="hotel-amenities-overview-card__title">Express check-out</p></div></li>
+            <li class="hotel-amenities-overview-card"><i class="bi bi-wifi"></i><div><p class="hotel-amenities-overview-card__title">Free Wi-Fi</p></div></li>
+            <li class="hotel-amenities-overview-card"><i class="bi bi-bag-heart"></i><div><p class="hotel-amenities-overview-card__title">Grab &amp; Go Breakfast</p></div></li>
+            <li class="hotel-amenities-overview-card"><i class="bi bi-scissors"></i><div><p class="hotel-amenities-overview-card__title">Hair salon</p><p class="hotel-amenities-overview-card__subtitle">On-site hair styling</p></div></li>
+            <li class="hotel-amenities-overview-card"><i class="bi bi-camera-reels"></i><div><p class="hotel-amenities-overview-card__title">Hybrid meeting</p></div></li>
+            <li class="hotel-amenities-overview-card"><i class="bi bi-safe"></i><div><p class="hotel-amenities-overview-card__title">Safety deposit box</p></div></li>
+            <li class="hotel-amenities-overview-card"><i class="bi bi-arrow-repeat"></i><div><p class="hotel-amenities-overview-card__title">Laundry service</p></div></li>
+            <li class="hotel-amenities-overview-card"><i class="bi bi-fridge-fill"></i><div><p class="hotel-amenities-overview-card__title">Minibar or fridge</p></div></li>
+            <li class="hotel-amenities-overview-card"><i class="bi bi-slash-circle"></i><div><p class="hotel-amenities-overview-card__title">Non-smoking</p><p class="hotel-amenities-overview-card__subtitle">Non-smoking rooms available</p></div></li>
+            <li class="hotel-amenities-overview-card"><i class="bi bi-parking"></i><div><p class="hotel-amenities-overview-card__title">Parking</p></div></li>
+            <li class="hotel-amenities-overview-card"><i class="bi bi-bell"></i><div><p class="hotel-amenities-overview-card__title">Room service</p></div></li>
+            <li class="hotel-amenities-overview-card"><i class="bi bi-shield-lock"></i><div><p class="hotel-amenities-overview-card__title">Safety &amp; Security Certification</p><p class="hotel-amenities-overview-card__subtitle">Safe Hotels certified</p></div></li>
+            <li class="hotel-amenities-overview-card"><i class="bi bi-leaf"></i><div><p class="hotel-amenities-overview-card__title">Sustainable Stays</p><span class="hotel-amenities-overview-card__subtitle">Hotel Sustainability Basics verified</span></div></li>
+            <li class="hotel-amenities-overview-card"><i class="bi bi-trophy"></i><div><p class="hotel-amenities-overview-card__title">Sports Approved</p><p class="hotel-amenities-overview-card__subtitle">Sports team accommodations</p></div></li>
+        </ul>
+    </div>
+</section>
+
+<!-- ===== ROOM CATEGORIES SECTION ===== -->
+<section class="container my-5" id="rooms">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Our Room Categories</h2>
+        <p class="text-muted">Choose from our comfortable room options designed for your perfect stay.</p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+        <!-- Standard Room -->
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm">
+                <img src="{% static 'images/ikadbw/coolio (2).jpg' %}" class="card-img-top" alt="Standard Room" style="height: 250px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Standard Room</h5>
+                    <p class="card-text text-muted">₦25,000 / night</p>
+                    <p class="card-text small">A comfortable and well-appointed room with modern amenities, perfect for business travelers or short stays.</p>
+                    <ul class="list-unstyled small text-muted mb-4">
+                        <li><i class="bi bi-check-lg text-success me-2"></i>Queen-size bed</li>
+                        <li><i class="bi bi-check-lg text-success me-2"></i>Free Wi-Fi</li>
+                        <li><i class="bi bi-check-lg text-success me-2"></i>Air conditioning</li>
+                        <li><i class="bi bi-check-lg text-success me-2"></i>32" Smart TV</li>
+                    </ul>
+                    <a href="{% url 'bw_booking' %}?room_type=Standard&price=25000" class="btn btn-outline-warning w-100">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Deluxe Room -->
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm">
+                <img src="{% static 'images/ikadbw/coolio (3).jpg' %}" class="card-img-top" alt="Deluxe Room" style="height: 250px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Deluxe Room</h5>
+                    <p class="card-text text-muted">₦35,000 / night</p>
+                    <p class="card-text small">A spacious and elegant room with enhanced amenities and comfortable furnishings for a luxurious stay.</p>
+                    <ul class="list-unstyled small text-muted mb-4">
+                        <li><i class="bi bi-check-lg text-success me-2"></i>King-size bed</li>
+                        <li><i class="bi bi-check-lg text-success me-2"></i>Free Wi-Fi</li>
+                        <li><i class="bi bi-check-lg text-success me-2"></i>Air conditioning</li>
+                        <li><i class="bi bi-check-lg text-success me-2"></i>43" Smart TV</li>
+                        <li><i class="bi bi-check-lg text-success me-2"></i>Mini refrigerator</li>
+                        <li><i class="bi bi-check-lg text-success me-2"></i>Workspace</li>
+                    </ul>
+                    <a href="{% url 'bw_booking' %}?room_type=Deluxe&price=35000" class="btn btn-outline-warning w-100">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

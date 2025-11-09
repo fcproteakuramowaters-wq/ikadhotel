@@ -1,0 +1,248 @@
+.booking-confirmation-wrapper {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Progress Steps */
+.booking-progress {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.progress-step {
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+    position: relative;
+}
+
+.progress-step::after {
+    content: '';
+    position: absolute;
+    right: -25px;
+    top: 50%;
+    width: 30px;
+    height: 2px;
+    background-color: #ddd;
+}
+
+.progress-step:last-child::after {
+    display: none;
+}
+
+.step-number {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    color: #666;
+}
+
+.progress-step.completed .step-number {
+    background-color: #28a745;
+    color: white;
+}
+
+.progress-step.current .step-number {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Booking Summary */
+.booking-summary {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+.summary-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.summary-row {
+    display: flex;
+    align-items: center;
+}
+
+.summary-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #e9ecef;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.summary-icon i {
+    font-size: 1.2rem;
+    color: #495057;
+}
+
+.info-label {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.info-value {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #212529;
+}
+
+/* Form Sections */
+.booking-form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.form-section:last-child {
+    border-bottom: none;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #495057;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Price Summary */
+.price-summary {
+    background-color: #0a0a0a;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.price-row.total {
+    border-top: 2px solid #dee2e6;
+    margin-top: 15px;
+    padding-top: 15px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Checkbox Styling */
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox input[type="checkbox"] {
+    width: auto;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn.primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+.btn.primary:hover {
+    background-color: #0056b3;
+}
+
+.btn.secondary {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+}
+
+.btn.secondary:hover {
+    background-color: #545b62;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .booking-confirmation-wrapper {
+        margin: 20px auto;
+    }
+
+    .progress-step {
+        margin: 0 10px;
+    }
+
+    .summary-details {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
