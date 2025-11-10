@@ -1,0 +1,734 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ikad Hotel & Suite - Victoria Island</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/static/images/logo.png">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Date Range Picker -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/static/css/style_vi.css">
+  <link rel="stylesheet" href="/static/css/whatsapp.css">
+  <link rel="stylesheet" href="/static/css/fb-styles.css">
+
+  <style>
+    :root {
+      --vbo-white-bg-color: #fff;
+      --vbo-grey-bg-color: #eee;
+      --vbo-light-grey-bg-color: #f6f6f6;
+      --vbo-light-dark-grey-bg-color: #444;
+      --vbo-border-color: #ddd;
+      --vbo-text-color: #444;
+      --vbo-light-text-color: #999;
+      --vbo-contrast-text-color: #fff;
+      --vbo-blue-color: #3286B8;
+      --vbo-blue-color-hover: #2B74A0;
+      --vbo-orange-color: #FF8000;
+      --vbo-green-color: #52aa20;
+      --form-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+      --input-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      --transition-speed: 0.3s;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--vbo-text-color);
+      line-height: 1.85714285714286;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Progress Bar Styles */
+    .vbstepsbarcont {
+      width: 100%;
+      text-align: left;
+      display: inline-block;
+      margin: 0 0 35px 0;
+    }
+
+    ol.vbo-stepbar {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      display: flex;
+      justify-content: space-between;
+      background: var(--vbo-light-grey-bg-color);
+      border-radius: 8px;
+    }
+
+    ol.vbo-stepbar li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 3em !important;
+      width: 25%;
+      padding: 0.5rem;
+      position: relative;
+      margin: 0 !important;
+      font-weight: 500;
+    }
+
+    ol.vbo-stepbar li.vbo-step-complete,
+    ol.vbo-stepbar li.vbo-step-current {
+      color: var(--vbo-text-color);
+      border-bottom: 4px solid var(--vbo-blue-color);
+    }
+
+    ol.vbo-stepbar li:before {
+      content: "";
+      position: relative;
+      bottom: -2.5em;
+      float: left;
+      left: 50%;
+      line-height: 1em;
+    }
+
+    ol.vbo-stepbar li.vbo-step-complete:before {
+      content: "✓";
+      color: var(--vbo-contrast-text-color);
+      background-color: var(--vbo-blue-color);
+      height: 1.2em;
+      width: 1.2em;
+      line-height: 1.2em;
+      border: none;
+      border-radius: 1.2em;
+      text-align: center;
+      font-size: 0.8em;
+    }
+
+    ol.vbo-stepbar li.vbo-step-current:before {
+      content: "";
+      background-color: var(--vbo-orange-color);
+      height: 1.2em;
+      width: 1.2em;
+      border: none;
+      border-radius: 1.2em;
+    }
+
+    /* Form Styles */
+    .booking-form {
+      background: var(--vbo-white-bg-color);
+      border-radius: 15px;
+      box-shadow: var(--form-shadow);
+      border: none;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem;
+    }
+
+    .booking-form h2 {
+      font-size: 2rem;
+      color: var(--vbo-text-color);
+      margin-bottom: 2rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .booking-form h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--vbo-blue-color);
+    }
+
+    .form-section {
+      background: var(--vbo-light-grey-bg-color);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      transition: all var(--transition-speed);
+    }
+
+    .form-section:hover {
+      box-shadow: var(--form-shadow);
+      transform: translateY(-2px);
+    }
+
+    .form-section h3 {
+      color: var(--vbo-text-color);
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .form-control, .form-select {
+      border: 1px solid var(--vbo-border-color);
+      border-radius: 8px;
+      padding: 12px 15px;
+      height: auto;
+      transition: all var(--transition-speed);
+      font-size: 1rem;
+      width: 100%;
+      background-color: var(--vbo-white-bg-color);
+      box-shadow: var(--input-shadow);
+    }
+
+    .form-control:focus, .form-select:focus {
+      border-color: var(--vbo-blue-color);
+      box-shadow: 0 0 0 2px rgba(50, 134, 184, 0.1);
+      outline: none;
+    }
+
+    .form-label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      color: var(--vbo-text-color);
+      font-size: 0.95rem;
+    }
+
+    .form-label span {
+      color: var(--vbo-orange-color);
+    }
+
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    /* Price Summary Styles */
+    .price-summary {
+      background: var(--vbo-blue-color);
+      color: var(--vbo-white-bg-color);
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+
+    .price-summary h3 {
+      color: var(--vbo-white-bg-color);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .price-row:last-child {
+      border-bottom: none;
+    }
+
+    .price-row.total {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 2px solid rgba(255, 255, 255, 0.2);
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    /* Terms Section */
+    .form-section.terms {
+      background: transparent;
+      padding: 1rem 0;
+    }
+
+    .form-group.checkbox {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .form-group.checkbox input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      border: 2px solid var(--vbo-border-color);
+      transition: all var(--transition-speed);
+    }
+
+    .form-group.checkbox input[type="checkbox"]:checked {
+      background-color: var(--vbo-blue-color);
+      border-color: var(--vbo-blue-color);
+    }
+
+    /* Form Actions */
+    .form-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all var(--transition-speed);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn.primary {
+      background: var(--vbo-blue-color);
+      color: var(--vbo-white-bg-color);
+    }
+
+    .btn.secondary {
+      background: var(--vbo-grey-bg-color);
+      color: var(--vbo-text-color);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .booking-form {
+        padding: 1.5rem;
+      }
+
+      .form-section {
+        padding: 1.5rem;
+      }
+
+      .form-row {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .form-group {
+        min-width: 100%;
+      }
+
+      .form-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    .form-control:focus, .form-select:focus {
+      border-color: var(--vbo-blue-color);
+      box-shadow: 0 0 0 0.2rem rgba(50, 134, 184, 0.25);
+    }
+
+    .form-label {
+      font-weight: 500;
+      color: var(--vbo-text-color);
+      margin-bottom: 8px;
+    }
+
+    .booking-icon {
+      color: var(--vbo-blue-color);
+      font-size: 1.2rem;
+      margin-right: 8px;
+    }
+
+    .btn-book {
+      background: var(--vbo-blue-color);
+      color: var(--vbo-contrast-text-color);
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-book:hover {
+      background: var(--vbo-blue-color-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(50, 134, 184, 0.3);
+    }
+
+    /* Summary Card Styles */
+    .booking-summary {
+      background: var(--vbo-light-grey-bg-color);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .summary-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background: var(--vbo-white-bg-color);
+      border-radius: 8px;
+      border: 1px solid var(--vbo-border-color);
+    }
+
+    .summary-icon {
+      color: var(--vbo-blue-color);
+      font-size: 1.5rem;
+      margin-right: 1rem;
+    }
+
+    .info-label {
+      color: var(--vbo-light-text-color);
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .info-value {
+      color: var(--vbo-text-color);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-uppercase" href="/hotels/victoria-island/">
+        <img src="/static/images/logo.png" alt="Ikad Hotel Logo" width="40" height="40" class="me-2">
+        Ikad Hotel & Suite
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navVI">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navVI">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/hotels/victoria-island/">Ikad Hotel & Suite Victoria Island</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact/">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE CONTENT ===== -->
+  <main>
+    
+
+<!-- ===== HERO ===== -->
+<section class="vi-hero text-light py-5 position-relative">
+	<img src="/static/images/ikadvi/ikadvi%20(3).jpg" alt="Ikad Hotel front" class="vi-hero-bg">
+	<div class="overlay"></div>
+
+		<div class="container position-relative text-center" style="z-index:2;">
+			<h1 class="fw-bold mb-3">Ikad Hotel & Suites — Victoria Island</h1>
+			<p class="lead text-light">Luxury stays, bespoke services, and exceptional experiences in the heart of Lagos.</p>
+			
+			<!-- Booking Success Message -->
+			<div id="bookingSuccessMessage" class="alert alert-success mb-4 d-none">
+				<i class="fas fa-check-circle me-2"></i>
+				<span></span>
+			</div>
+
+			<!-- Booking Form -->
+			<div class="booking-form mt-4 p-4 rounded-4">
+				<form class="row g-4 justify-content-center" id="bookingForm" action="/booking/victoria-island/" method="GET">
+					<div class="col-lg-3 col-md-6">
+						<label for="checkIn" class="form-label">
+							<i class="fas fa-calendar-alt booking-icon"></i>Check In
+						</label>
+						<div class="input-group">
+							<input type="date" class="form-control" id="checkIn" name="checkin" required>
+							<span class="input-group-text bg-transparent border-start-0">
+								<i class="fas fa-chevron-down text-muted"></i>
+							</span>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6">
+						<label for="checkOut" class="form-label">
+							<i class="fas fa-calendar-check booking-icon"></i>Check Out
+						</label>
+						<div class="input-group">
+							<input type="date" class="form-control" id="checkOut" name="checkout" required>
+							<span class="input-group-text bg-transparent border-start-0">
+								<i class="fas fa-chevron-down text-muted"></i>
+							</span>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-6">
+						<label for="guests" class="form-label">
+							<i class="fas fa-user-friends booking-icon"></i>Guests
+						</label>
+						<div class="input-group">
+							<select class="form-select" id="guests" name="guests" required>
+								<option value="1">1 Guest</option>
+								<option value="2" selected>2 Guests</option>			
+							</select>
+							<span class="input-group-text bg-transparent border-start-0">
+								<i class="fas fa-chevron-down text-muted"></i>
+							</span>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-6">
+						<label for="room_type" class="form-label">
+							<i class="fas fa-bed booking-icon"></i>Room Type
+						</label>
+						<div class="input-group">
+							<select class="form-select" id="room_type" name="room_type" required>
+								<option value="Studio" data-price="45000">Studio</option>
+								<option value="Elite" data-price="60000">Elite</option>
+								<option value="Premier" data-price="80000">Premier</option>
+								<option value="Luxury" data-price="100000">Luxury</option>
+								<option value="Master" data-price="150000">Master</option>
+							</select>
+							<span class="input-group-text bg-transparent border-start-0">
+								<i class="fas fa-chevron-down text-muted"></i>
+							</span>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-12 d-flex align-items-end">
+						<button type="submit" class="btn btn-book w-100">
+							<i class="fas fa-calendar-check me-2"></i>Book Now
+						</button>
+					</div>
+				</form>
+			</div>
+
+			<!-- Room Preview Card (shows when room type is selected) -->
+			<div id="roomPreview" class="mt-4 d-none">
+				<div class="card bg-white bg-opacity-95 shadow">
+					<div class="card-body p-4">
+						<div class="d-flex align-items-center">
+							<i class="fas fa-info-circle text-primary me-3 fs-4"></i>
+							<div>
+								<h5 class="card-title mb-1" id="previewRoomType">Selected Room</h5>
+								<p class="card-text mb-0" id="previewPrice">Price per night</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><!-- ===== SERVICES (AMENITIES) ===== -->
+<section class="container mt-5">
+	<h2 class="fw-bold mb-3">Services</h2>
+	<div class="hotel-amenities-overview default-container-xl">
+		<ul class="hotel-amenities-overview__container">
+			<li class="hotel-amenities-overview-card"><i class="bi bi-bag"></i><div><p class="hotel-amenities-overview-card__title">Luggage storage</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-shop"></i><div><p class="hotel-amenities-overview-card__title">On-site dining</p><p class="hotel-amenities-overview-card__subtitle">On-site restaurant(s)</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-universal-access"></i><div><p class="hotel-amenities-overview-card__title">Accessibility</p><p class="hotel-amenities-overview-card__subtitle">Accessibility features available</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-briefcase"></i><div><p class="hotel-amenities-overview-card__title">Executive business lounge</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-bus-front"></i><div><p class="hotel-amenities-overview-card__title">Airport shuttle</p><p class="hotel-amenities-overview-card__subtitle">Shuttle bus</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-cup-straw"></i><div><p class="hotel-amenities-overview-card__title">Bar</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-basket2"></i><div><p class="hotel-amenities-overview-card__title">Breakfast buffet</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-wifi"></i><div><p class="hotel-amenities-overview-card__title">Free Wi-Fi</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-bag-heart"></i><div><p class="hotel-amenities-overview-card__title">Grab &amp; Go Breakfast</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-safe"></i><div><p class="hotel-amenities-overview-card__title">Safety deposit box</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-arrow-repeat"></i><div><p class="hotel-amenities-overview-card__title">Laundry service</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-fridge-fill"></i><div><p class="hotel-amenities-overview-card__title">Minibar or fridge</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-slash-circle"></i><div><p class="hotel-amenities-overview-card__title">Non-smoking</p><p class="hotel-amenities-overview-card__subtitle">Non-smoking rooms available</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-parking"></i><div><p class="hotel-amenities-overview-card__title">Parking</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-bell"></i><div><p class="hotel-amenities-overview-card__title">Room service</p></div></li>
+			<li class="hotel-amenities-overview-card"><i class="bi bi-leaf"></i><div><p class="hotel-amenities-overview-card__title">Sustainable Stays</p><span class="hotel-amenities-overview-card__subtitle">Hotel Sustainability Basics verified</span></div></li>
+		</ul>
+	</div>
+</section>
+
+<!-- ===== ROOM CATEGORIES SECTION ===== -->
+<section class="container my-5">
+	<div class="text-center mb-5">
+		<h2 class="fw-bold">Our Room Categories</h2>
+		<p class="text-muted">Choose from our range of beautifully designed rooms to match your style and comfort.</p>
+	</div>
+
+	<div class="row g-4">
+		<!-- Studio Room -->
+		<div class="col-md-4 col-lg-3">
+			<div class="card h-100 shadow-sm">
+				<img src="/static/images/ikadvi/luxury%20(1).jpg" class="card-img-top" alt="Studio Room" style="height: 200px; object-fit: cover;">
+				<div class="card-body">
+					<h5 class="card-title fw-bold">Studio Room</h5>
+					<p class="card-text text-muted">₦45,000 / night</p>
+					<p class="card-text small">A cozy, modern space ideal for solo travelers or short stays, offering comfort and convenience.</p>
+					<a href="#" class="btn btn-outline-warning w-100">View Details</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Elite Room -->
+		<div class="col-md-4 col-lg-3">
+			<div class="card h-100 shadow-sm">
+				<img src="/static/images/ikadvi/elite%20(1).jpg" class="card-img-top" alt="Elite Room" style="height: 200px; object-fit: cover;">
+				<div class="card-body">
+					<h5 class="card-title fw-bold">Elite Room</h5>
+					<p class="card-text text-muted">₦60,000 / night</p>
+					<p class="card-text small">A spacious, well-designed room with premium bedding and a calm ambiance for business or leisure.</p>
+					<a href="#" class="btn btn-outline-warning w-100">View Details</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Premier Room -->
+		<div class="col-md-4 col-lg-3">
+			<div class="card h-100 shadow-sm">
+				<img src="/static/images/ikadvi/premium%20(1).jpg" class="card-img-top" alt="Premier Room" style="height: 200px; object-fit: cover;">
+				<div class="card-body">
+					<h5 class="card-title fw-bold">Premier Room</h5>
+					<p class="card-text text-muted">₦80,000 / night</p>
+					<p class="card-text small">Elegant decor and luxurious comfort with upgraded amenities and city views for an elevated experience.</p>
+					<a href="#" class="btn btn-outline-warning w-100">View Details</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Luxury Room -->
+		<div class="col-md-4 col-lg-3">
+			<div class="card h-100 shadow-sm">
+				<img src="/static/images/ikadvi/luxury%20(2).jpg" class="card-img-top" alt="Luxury Room" style="height: 200px; object-fit: cover;">
+				<div class="card-body">
+					<h5 class="card-title fw-bold">Luxury Room</h5>
+					<p class="card-text text-muted">₦100,000 / night</p>
+					<p class="card-text small">A perfect blend of sophistication and comfort, featuring plush interiors and personalized service.</p>
+					<a href="#" class="btn btn-outline-warning w-100">View Details</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Master Suite -->
+		<div class="col-md-4 col-lg-3">
+			<div class="card h-100 shadow-sm">
+				<img src="/static/images/ikadvi/master%20(1).jpg" class="card-img-top" alt="Master Suite" style="height: 200px; object-fit: cover;">
+				<div class="card-body">
+					<h5 class="card-title fw-bold">Master Suite</h5>
+					<p class="card-text text-muted">₦150,000 / night</p>
+					<p class="card-text small">Our grandest suite with a private lounge and exquisite furnishings — a home of ultimate luxury.</p>
+					<a href="#" class="btn btn-outline-warning w-100">View Details</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+ <footer class="text-light mt-5" style="background-color: #0E0E0E;">
+  <div class="container py-5">
+    <div class="row gy-4">
+      <!-- About -->
+      <div class="col-md-4">
+        <h5 class="fw-bold text-uppercase mb-3 text-warning">Ikad Hotel & Suite</h5>
+        <p>Located in Victoria Island, Lagos — experience modern comfort and elegance. Our luxurious rooms, restaurant, and bar are designed to make every stay unforgettable.</p>
+        <p><i class="bi bi-geo-alt-fill"></i> 45 Ocean View Road, Victoria Island, Lagos</p>
+        <p><i class="bi bi-telephone-fill"></i> +234 800 654 7890</p>
+        <p><i class="bi bi-envelope-fill"></i> info@ikadvictoria.com</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-4">
+        <h5 class="fw-bold text-uppercase mb-3 text-warning">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#rooms" class="text-decoration-none text-light">Our Rooms</a></li>
+          <li><a href="#amenities" class="text-decoration-none text-light">Amenities</a></li>
+          <li><a href="/contact/" class="text-decoration-none text-light">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="col-md-4">
+        <h5 class="fw-bold text-uppercase mb-3 text-warning">Newsletter</h5>
+        <p>Join our mailing list for updates and exclusive offers.</p>
+        <form class="d-flex">
+          <input type="email" class="form-control me-2" placeholder="Enter email" required>
+          <button class="btn btn-warning" type="submit">Subscribe</button>
+        </form>
+        <div class="mt-3">
+          <a href="#" class="text-warning me-3"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-warning me-3"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-warning"><i class="bi bi-twitter-x"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Embedded Google Map -->
+    <div class="row mt-5">
+      <div class="col-12">
+        <div class="ratio ratio-16x9">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.349621310725!2d3.4335721750378163!3d6.432870724421134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bf523c32d4e93%3A0xd24d4aed0b4b33c6!2sIkad%20Hotel%20and%20Suite!5e0!3m2!1sen!2sng!4v1731183549210!5m2!1sen!2sng" 
+            width="100%" 
+            height="300" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <hr class="border-secondary my-4">
+
+    <div class="text-center">
+      <p class="mb-0">&copy; 2025 Ikad Hotel & Suite - Victoria Island. All rights reserved.</p>
+      <small>
+        <a href="#" class="text-decoration-none text-secondary">Privacy Policy</a> | 
+        <a href="#" class="text-decoration-none text-secondary">Terms & Conditions</a>
+      </small>
+    </div>
+  </div>
+</footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Date Range Picker -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  
+  <!-- Custom JS -->
+  <script src="/static/js/booking_enhanced.js"></script>
+
+  <!-- ===== WhatsApp Chatbox ===== -->
+  <a href="https://wa.me/2348101143167?text=Hello%20Ikad%20Hotel%2C%20I%27d%20like%20to%20make%20a%20booking."
+    class="whatsapp_float"
+    target="_blank"
+    title="Chat with us on WhatsApp">
+      <img src="/static/images/whatsapp-icon.png" alt="WhatsApp" width="60" height="60">
+  </a>
+  <div class="whatsapp_tooltip">Chat with us</div>
+</body>
+</html>

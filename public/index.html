@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Ikad Hotel</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/static/images/logo.png">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="home-page">
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 shadow-sm">
+        <div class="container position-relative">
+            <a class="navbar-brand fw-bold text-uppercase position-absolute start-50 translate-middle-x" href="/">
+                <img src="/static/images/logo.png" alt="Ikad Hotel Logo" width="40" height="40" class="me-2">
+                Ikad Hotel
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="hotelsDropdown" role="button">
+                            Hotels
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/hotels/victoria-island/">Ikad Hotel and Suite - Victoria Island</a></li>
+                            <li><a class="dropdown-item" href="/hotels/cooli-hotel/">Cooli Hotel</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact/">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="flex-shrink-0">
+        
+
+<!-- ===== CAROUSEL SECTION ===== -->
+<div id="hotelCarousel" class="carousel slide container mt-4" data-bs-ride="carousel" style="max-width: 100%; height: 60vh; overflow: hidden; border-radius: 10px;">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/static/images/ikadvi/luxury%20(1).jpg" class="d-block w-100" alt="Ikad Hotel" style="height: 60vh; object-fit: cover;">
+      <div class="carousel-caption d-none d-md-block">
+        <h3 class="fw-bold">Welcome to Ikad Hotel</h3>
+        <p>Luxury and comfort await you in the heart of Victoria Island.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="/static/images/ikadvi/luxury%20(2).jpg" class="d-block w-100" alt="Luxury Room" style="height: 60vh; object-fit: cover;">
+      <div class="carousel-caption d-none d-md-block">
+        <h3 class="fw-bold">Luxurious Accommodations</h3>
+        <p>Experience unparalleled comfort in our premium rooms.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="/static/images/ikadvi/master%20(1).jpg" class="d-block w-100" alt="Master Suite" style="height: 60vh; object-fit: cover;">
+      <div class="carousel-caption d-none d-md-block">
+        <h3 class="fw-bold">Experience Class</h3>
+        <p>Enjoy a blend of luxury and modern style.</p>
+      </div>
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#hotelCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#hotelCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+<!-- ===== HOTELS SECTION ===== -->
+<section class="container my-5">
+  <div class="text-center mb-5">
+    <h2 class="section-title fw-bold">Our Hotels</h2>
+    <p class="text-muted mt-3">Explore our premium properties across Nigeria</p>
+  </div>
+
+  <div class="row g-4">
+    <!-- Ikad Hotel and Suite -->
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <img src="/static/images/ikadvi/ikadvi%20(3).jpg" class="card-img-top" alt="Ikad Hotel and Suite" style="height: 250px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title fw-bold">Ikad Hotel and Suite - Victoria Island</h5>
+          <p class="card-text text-muted">Located in the vibrant heart of Lagos, offering luxury rooms, fine dining, and unmatched comfort for business and leisure travelers.</p>
+          <a href="/hotels/victoria-island/" class="btn btn-primary">View Details</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cooli Hotel -->
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <img src="/static/images/ikadbw/coolio%20(1).jpg" class="card-img-top" alt="Cooli Hotel" style="height: 250px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title fw-bold">Cooli Hotel</h5>
+          <p class="card-text text-muted">A modern and serene escape for relaxation and class. Experience exquisite rooms and personalized services at Cooli Hotel.</p>
+          <a href="/hotels/cooli-hotel/" class="btn btn-primary">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-dark text-light mt-5 pt-5 pb-3">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-md-4">
+                    <h5 class="fw-bold text-uppercase">Ikad Hotel</h5>
+                    <p>Experience comfort and class in every stay. Ikad Hotel offers exceptional hospitality and premium facilities in the heart of Victoria Island.</p>
+                    <p><i class="bi bi-geo-alt-fill"></i> Victoria Island, Lagos, Nigeria</p>
+                    <p><i class="bi bi-telephone-fill"></i> +234 800 123 4567</p>
+                    <p><i class="bi bi-envelope-fill"></i> info@ikadhotel.com</p>
+                </div>
+
+                <div class="col-md-4">
+                    <h5 class="fw-bold text-uppercase">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/" class="text-decoration-none text-light">Home</a></li>
+                        <li><a href="/hotels/victoria-island/" class="text-decoration-none text-light">Ikad Hotel & Suites</a></li>
+                        <li><a href="/hotels/cooli-hotel/" class="text-decoration-none text-light">Cooli Hotel</a></li>
+                        <li><a href="/contact/" class="text-decoration-none text-light">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <h5 class="fw-bold text-uppercase">Newsletter</h5>
+                    <p>Subscribe to our newsletter for exclusive offers and updates.</p>
+                    <form class="d-flex">
+                        <input type="email" class="form-control me-2" placeholder="Enter your email">
+                        <button class="btn btn-primary" type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="border-secondary mt-4">
+
+            <div class="text-center">
+                <p class="mb-0">&copy; 2025 Ikad Hotel. All rights reserved.</p>
+                <small><a href="#" class="text-decoration-none text-secondary">Privacy Policy</a> | <a href="#" class="text-decoration-none text-secondary">Terms & Conditions</a></small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
