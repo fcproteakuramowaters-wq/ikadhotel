@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-!g*!1rvqky*$s#z*&%x@j#_+@ns0-^@6bw1$z$kh#^llpj5wa0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ikadhotel.onrender.com', 'localhost', '127.0.0.1']
 
 # Logging Configuration
 LOGGING = {
