@@ -1,0 +1,449 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>IKAD Hotel & Suites | Luxury Menu & Guest Directory</title>
+  <!-- Google Fonts: Elegant serif & modern sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0a0704;  /* deep charcoal luxury base */
+      font-family: 'Montserrat', sans-serif;
+      color: #e9dbc3;
+      line-height: 1.5;
+    }
+
+    /* luxury gold accent */
+    .gold-text {
+      color: #d4af37;
+    }
+    .gold-border {
+      border-color: #d4af37;
+    }
+    .bg-gold-light {
+      background: rgba(212, 175, 55, 0.08);
+    }
+
+    h1, h2, h3, .serif-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* header with logo concept & hotel identity */
+    .luxury-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 2px solid rgba(212, 175, 55, 0.4);
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .logo-icon {
+      background: #d4af37;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+    }
+    .logo-icon i {
+      font-size: 2.2rem;
+      color: #1e1a15;
+    }
+    .hotel-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+    }
+    .hotel-name {
+      font-size: 2rem;
+      font-weight: 700;
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1.2;
+    }
+    .hotel-name span {
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      color: #d4af37;
+    }
+    .tagline {
+      text-align: right;
+      font-style: italic;
+      font-size: 1rem;
+      border-left: 2px solid #d4af37;
+      padding-left: 1rem;
+    }
+    .tagline p {
+      font-size: 0.9rem;
+      font-weight: 300;
+    }
+
+    /* contact bars */
+    .contact-bar {
+      background: #16120e;
+      border-radius: 20px;
+      padding: 1rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+    }
+    .contact-item i {
+      color: #d4af37;
+      width: 30px;
+    }
+
+    /* grid & cards */
+    .menu-section {
+      margin-bottom: 3rem;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 2px;
+      background: #d4af37;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .menu-card {
+      background: #13100c;
+      border-radius: 24px;
+      padding: 1.2rem 1.2rem;
+      transition: all 0.25s ease;
+      border: 1px solid #2c241e;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    .menu-card:hover {
+      border-color: #d4af37;
+      transform: translateY(-4px);
+      background: #181411;
+    }
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      border-bottom: 1px dashed rgba(212, 175, 55, 0.3);
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .item-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: 0.5px;
+    }
+    .item-price {
+      font-weight: 600;
+      color: #d4af37;
+      font-size: 1.1rem;
+    }
+    .item-desc {
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+
+    /* two columns for specials */
+    .two-col-layout {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 2rem;
+    }
+    .info-panel {
+      background: #0e0b08;
+      border-radius: 28px;
+      padding: 1.8rem;
+      border: 1px solid #2a221c;
+    }
+    .intercom-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+    .intercom-item {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dotted #3e352b;
+      padding: 0.4rem 0;
+    }
+    hr {
+      border-color: #d4af3722;
+      margin: 1rem 0;
+    }
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      font-size: 0.8rem;
+      opacity: 0.7;
+      border-top: 1px solid #2c241e;
+    }
+    @media (max-width: 760px) {
+      .container { padding: 1rem; }
+      .luxury-header { flex-direction: column; text-align: center; gap: 1rem; }
+      .tagline { border-left: none; text-align: center; padding-left: 0; }
+      .two-col-layout { grid-template-columns: 1fr; }
+    }
+    .highlight {
+      background: linear-gradient(145deg, #1e1914, #130f0b);
+    }
+    .btn-call {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #d4af37;
+      color: #0a0704;
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 0.8rem;
+    }
+    .wine-cat {
+      font-weight: 600;
+      margin-top: 0.8rem;
+      color: #d4af37;
+      font-size: 1rem;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- Header with Logo (Font Awesome crown as emblem) and hotel details -->
+  <div class="luxury-header">
+    <div class="logo-area">
+      <div class="logo-icon">
+        <img src="image.png" alt="IKAD logo" class="hotel-logo">
+      </div>
+      <div class="hotel-name">
+        IKAD <span>HOTEL AND SUITES</span>
+      </div>
+    </div>
+    <div class="tagline">
+      <i class="fas fa-key gold-text"></i> Classic Luxury · Exclusive Privacy
+      <p>204B, Etim Inyang Crescent, Victoria Island, Lagos</p>
+    </div>
+  </div>
+
+  <!-- Communications & Reception Bar -->
+  <div class="contact-bar">
+  <div class="contact-item"><i class="fas fa-phone-alt"></i> Reception: <strong>+234 916 373 8458</strong></div>
+    <div class="contact-item"><i class="fas fa-concierge-bell"></i> Bar: <strong>+234 810 678 4924</strong></div>
+    <div class="contact-item"><i class="fas fa-utensils"></i> Kitchen: <strong>ext. 821</strong> | Front Desk: 820</div>
+    <div class="contact-item"><i class="fas fa-map-marker-alt"></i> 204B, Etim Inyang Crescent, Victoria Island & 270 Borno Way, Ebute-Metta</div>
+  </div>
+
+  <!-- DRINKS & FOOD main sections using transcribed content -->
+  <div class="menu-section">
+    <h2 class="section-title"><i class="fas fa-wine-glass-alt gold-text"></i> Fine Wines & Spirits</h2>
+    <div class="card-grid">
+      <!-- WHISKEY / BOURBON -->
+      <div class="menu-card">
+        <div class="item-header"><span class="item-name">Jameson Green</span><span class="item-price">₦40,000</span></div>
+        <div class="item-header"><span class="item-name">American Honey</span><span class="item-price">₦45,000</span></div>
+        <div class="item-header"><span class="item-name">William Lawson's</span><span class="item-price">₦25,000</span></div>
+        <div class="item-header"><span class="item-name">Black Label</span><span class="item-price">₦50,000</span></div>
+        <div class="item-header"><span class="item-name">Jack Daniel's</span><span class="item-price">₦40,000</span></div>
+        <div class="item-header"><span class="item-name">Red Label</span><span class="item-price">₦30,000</span></div>
+        <div class="item-header"><span class="item-name">Jamison Black</span><span class="item-price">₦55,000</span></div>
+        <div class="item-header"><span class="item-name">Glendalich 12yrs</span><span class="item-price">₦90,000</span></div>
+      </div>
+      <!-- COGNAC/BRANDY -->
+      <div class="menu-card">
+        <div class="item-header"><span class="item-name">Hennessy VSOP</span><span class="item-price">₦150,000</span></div>
+        <div class="item-header"><span class="item-name">Hennessy VS</span><span class="item-price">₦90,000</span></div>
+        <div class="item-header"><span class="item-name">Hennessy VS (mini)</span><span class="item-price">₦50,000</span></div>
+        <div class="item-header"><span class="item-name">Remy Martin VSOP</span><span class="item-price">₦120,000</span></div>
+        <div class="item-header"><span class="item-name">Remy Martin VS</span><span class="item-price">₦90,000</span></div>
+        <div class="item-header"><span class="item-name">Martel VS</span><span class="item-price">₦75,000</span></div>
+        <div class="item-header"><span class="item-name">St. Remy</span><span class="item-price">₦25,000</span></div>
+      </div>
+      <!-- VODKA & TEQUILA -->
+      <div class="menu-card">
+        <div class="item-header"><span class="item-name">Sky Infusion</span><span class="item-price">₦25,000</span></div>
+        <div class="item-header"><span class="item-name">Sky Vodka</span><span class="item-price">₦25,000</span></div>
+        <div class="item-header"><span class="item-name">Absolute Vodka</span><span class="item-price">₦35,000</span></div>
+        <div class="item-header"><span class="item-name">Ciroc Vodka</span><span class="item-price">₦55,000</span></div>
+        <div class="item-header"><span class="item-name">Sierra Tequila</span><span class="item-price">₦25,000</span></div>
+        <div class="item-header"><span class="item-name">Olmeca Tequila</span><span class="item-price">₦45,000</span></div>
+      </div>
+      <!-- LIQUEUR / GIN & LOCAL SPIRITS -->
+      <div class="menu-card">
+        <div class="item-header"><span class="item-name">Baileys Original</span><span class="item-price">₦30,000</span></div>
+        <div class="item-header"><span class="item-name">Best cream (s/s)</span><span class="item-price">₦3,500</span></div>
+        <div class="item-header"><span class="item-name">Best Whisky (s/s)</span><span class="item-price">₦3,000</span></div>
+        <div class="item-header"><span class="item-name">Best London Gin</span><span class="item-price">₦3,000</span></div>
+        <div class="item-header"><span class="item-name">Plastic Orjin</span><span class="item-price">₦2,500</span></div>
+        <div class="item-header"><span class="item-name">Action Bitters(s/s)</span><span class="item-price">₦2,500 / ₦1,500</span></div>
+      </div>
+    </div>
+
+    <div class="wine-cat" style="margin-top: 25px;"><i class="fas fa-wine-bottle"></i> White / Red Wine & Champagne</div>
+    <div class="card-grid">
+      <div class="menu-card"><div class="item-header"><span>Drosty Hof white/red/rose</span><span>₦10,000</span></div><div class="item-header"><span>4th Street red/rose</span><span>₦10,000</span></div><div class="item-header"><span>Frontera</span><span>₦12,000</span></div><div class="item-header"><span>Four Cousins Red/White/Rose</span><span>₦15,000</span></div><div class="item-header"><span>Carlo Rossi</span><span>₦15,000</span></div><div class="item-header"><span>Castillo de Rossi</span><span>₦12,000</span></div><div class="item-header"><span>Baron de vallis</span><span>₦30,000</span></div><div class="item-header"><span>Asconic Agor</span><span>₦17,000</span></div></div>
+      <div class="menu-card"><div class="item-header"><span>Verve Clicquot Brut</span><span>₦15,000</span></div><div class="item-header"><span>Martini Rose</span><span>₦30,000</span></div><div class="item-header"><span>Andre Rose</span><span>₦25,000</span></div><div class="item-header"><span>Andre Brut</span><span>₦25,000</span></div><div class="item-header"><span>Veleta</span><span>₦18,000</span></div><div class="item-header"><span>Champagne & Rolling Wine</span><span class="gold-text">Premium</span></div></div>
+    </div>
+
+    <!-- BEER, JUICE, ENERGY DRINKS -->
+    <h2 class="section-title" style="margin-top: 2rem;"><i class="fas fa-beer"></i> Beers, Soft Drinks & Energy</h2>
+    <div class="card-grid">
+      <div class="menu-card">
+        <div class="item-header"><span>Trophy / Heineken / Budweiser / Goldberg / Big Stout / Smirnoff Ice can / Desperado / Orjin Beer</span><span>₦3,000</span></div>
+        <div class="item-header"><span>33 Export / Small Stout</span><span>₦2,500</span></div>
+        <div class="item-header"><span>Chivita / Chi Exotic / Hollandia</span><span>₦4,000</span></div>
+        <div class="item-header"><span>Malta Guinness can</span><span>₦2,500</span></div>
+        <div class="item-header"><span>Faro can</span><span>₦2,000</span></div>
+        <div class="item-header"><span>Coke / Fanta / Sprite / Pepsi</span><span>₦2,000</span></div>
+        <div class="item-header"><span>Bottle Water</span><span>₦1,000</span></div>
+        <div class="item-header"><span>Bullet / Powerhouse / Red Bull / Monster</span><span>₦3,000</span></div>
+        <div class="item-header"><span>Predator / Fearless</span><span>₦2,500</span></div>
+      </div>
+    </div>
+
+    <!-- FOOD MENU: Pasta, Rice, Finger Foods, Swallow -->
+    <h2 class="section-title"><i class="fas fa-utensils"></i> Signature Kitchen</h2>
+    <div class="two-col-layout">
+      <div class="info-panel">
+        <h3><i class="fas fa-pasta"></i> Pasta & Noodles</h3>
+        <div class="item-header"><span>Noodles + Boiled/Fried Egg</span><span>₦6,000</span></div>
+        <div class="item-header"><span>Noodles + Chicken/Turkey/Beef/Fish</span><span>₦11,000</span></div>
+        <div class="item-header"><span>Spaghetti + Chicken/Turkey/Beef/Fish</span><span>₦11,000</span></div>
+        <div class="item-header"><span>Spaghetti + Egg</span><span>₦7,000</span></div>
+        <h3 style="margin-top: 1rem;"><i class="fas fa-hamburger"></i> Rice & Chips</h3>
+        <div class="item-header"><span>Chicken & Chips / Turkey & Chips / Fish & Chips</span><span>₦11,000</span></div>
+        <div class="item-header"><span>Beef & Chips</span><span>₦8,500</span></div>
+        <div class="item-header"><span>Fried Chips (plain)</span><span>₦6,000</span></div>
+        <div class="item-header"><span>Boiled/Fried Yam & Egg sauce / Sweet Potato & Egg sauce</span><span>₦7,500</span></div>
+        <div class="item-header"><span>White Rice + Chicken/Turkey/Beef/Fish</span><span>₦10,000</span></div>
+        <div class="item-header"><span>Jollof Rice / Fried Rice</span><span>₦10,000</span></div>
+      </div>
+      <div class="info-panel">
+        <h3><i class="fas fa-drumstick-bite"></i> Finger Foods & Pepper Soup</h3>
+        <div class="item-header"><span>Peppered Chicken / Turkey / Beef / Fish</span><span>₦7,000</span></div>
+        <div class="item-header"><span>Pepper Soup (Assorted meat / Turkey / Chicken)</span><span>₦7,000</span></div>
+        <h3>Extras</h3>
+        <div class="item-header"><span>Soup extra</span><span>₦2,000</span></div>
+        <div class="item-header"><span>Stew</span><span>₦1,000</span></div>
+        <div class="item-header"><span>Fried/Boiled Yam/Sweet Potato</span><span>₦4,000</span></div>
+        <div class="item-header"><span>Chips</span><span>₦3,000</span></div>
+        <div class="item-header"><span>Noodles (1)</span><span>₦2,000</span></div>
+        <div class="item-header"><span>Poundo/Semo/Eba</span><span>₦2,000</span></div>
+        <div class="item-header"><span>Fried/Boiled Egg</span><span>₦2,000</span></div>
+        <div class="item-header"><span>White/Jollof/Fried Rice</span><span>₦4,000</span></div>
+        <div class="item-header"><span>Coleslaw</span><span>₦1,500</span></div>
+        <div class="item-header"><span>Plantain</span><span>₦1,500</span></div>
+
+        <h3>Swallow Combinations</h3>
+        <div class="item-header"><span>Poundo/Egusi/Chicken</span><span>₦10,500</span></div>
+        <div class="item-header"><span>Poundo/Egusi/Beef</span><span>₦9,300</span></div>
+        <div class="item-header"><span>Semo/Vegetable/Turkey</span><span>₦11,000</span></div>
+        <div class="item-header"><span>Eba/Ogbono/Fish</span><span>₦10,000</span></div>
+        <div class="item-desc">+ any Swallow/Soup/Protein combo available</div>
+      </div>
+    </div>
+
+    <!-- INTERCOM & ROOM DIRECTORY + SECONDARY ADDRESS -->
+    <div class="two-col-layout" style="margin-top: 1.5rem;">
+      <div class="info-panel">
+        <h3><i class="fas fa-phone-alt"></i> In-Room Intercom Directory</h3>
+        <div class="intercom-grid">
+          <div class="intercom-item"><span>Front Desk</span><span>820</span></div>          
+        </div>
+        <hr>
+        <p><i class="fas fa-map-pin gold-text"></i> <strong>Second Location:</strong> 270, Borno Way, Ebute-Metta, Lagos.</p>
+        <p class="gold-text" style="margin-top: 0.5rem;"><i class="fas fa-shield-alt"></i> Exclusive Privacy · 24/7 Butler Service</p>
+      </div>
+      <div class="info-panel">
+        <h3><i class="fas fa-champagne-glasses"></i> Hotel Notes & Services</h3>
+        <p>✦ Classic luxury with modern sophistication.<br>
+        ✦ All rates are in Nigerian Naira (₦).<br>
+        ✦ Complimentary bottle water in every suite.<br>
+        ✦ In-room dining: Dial 820 (Front Desk) or 821 (Kitchen).<br>
+        ✦ <i class="fas fa-wifi"></i> High-speed WiFi throughout the premises.<br>
+        ✦ Private events and exclusive buyouts available.<br>
+        ✦ "Server Not Found" ? – Our concierge is reachable 24/7 at +234 916 373 8458.<br>
+        ✦ <strong>Google Hacking?</strong> Not here; your digital privacy is paramount at IKAD.</p>
+        <div style="margin-top: 1rem; background: #1f1914; border-radius: 16px; padding: 0.8rem; text-align: center;">
+          <i class="fas fa-crown gold-text"></i>  Classic Luxury · Exclusive Privacy  <i class="fas fa-crown gold-text"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional transcribed drinks: (mini spirits) & local -->
+    <div class="menu-section" style="margin-top: 2rem;">
+      <h2 class="section-title">Spirits & Liqueur Highlights</h2>
+      <div class="card-grid">
+        <div class="menu-card"><div class="item-header"><span>Jameson Black (premium)</span><span>₦55,000</span></div><div class="item-header"><span>Best Whisky (single shot)</span><span>₦3,000</span></div><div class="item-header"><span>Action Bitters single shot</span><span>₦1,500</span></div><div class="item-header"><span>Plastic Orjin local spirit</span><span>₦2,500</span></div></div>
+        <div class="menu-card"><div class="item-header"><span>Desperado Can / Smirnoff Ice</span><span>₦3,000</span></div><div class="item-header"><span>Red Bull / Monster </span><span>₦3,000</span></div><div class="item-header"><span>Faro Can soft drink</span><span>₦2,000</span></div></div>
+      </div>
+    </div>
+
+    <!-- Image placeholder: representative luxury dining (simulate the 'plate with various food items') -->
+    <div style="background: linear-gradient(to right, #1a140f, #0f0c08); border-radius: 36px; padding: 1rem; margin-top: 2rem; text-align: center; border: 1px solid #d4af3744;">
+      <i class="fas fa-utensil-spoon gold-text" style="font-size: 2rem;"></i> <i class="fas fa-hamburger" style="font-size: 2rem;"></i> <i class="fas fa-wine-bottle" style="font-size: 2rem;"></i>
+      <p style="margin-top: 12px; font-style: italic;">"A picture of exquisite culinary art – from our kitchen to your suite."<br> <span class="gold-text">IKAD Epicurean Experience</span></p>
+      <div style="max-width: 300px; margin: 15px auto; background: #2c241e; height: 120px; border-radius: 28px; display: flex; align-items: center; justify-content: center; gap: 20px;">
+        <i class="fas fa-fish fa-2x gold-text"></i>
+        <i class="fas fa-drumstick fa-2x gold-text"></i>
+        <i class="fas fa-carrot fa-2x gold-text"></i>
+      </div>
+      <div class="item-desc">Grilled Chicken · Jollof Rice · Plantain · Pepper Sauce — Our signature plate</div>
+    </div>
+
+    <!-- final call to action & copyright -->
+    <footer>
+      <p><i class="fas fa-phone-alt gold-text"></i> Reservations & Inquiries: <a class="btn-call" href="tel:+2349163738458">+234 916 373 8458</a>  |  <i class="fab fa-whatsapp"></i> <a class="btn-call" href="https://wa.me/2349163738458?text=Hello%2C%20I%27d%20like%20to%20place%20an%20order">WhatsApp Orders: +234 916 373 8458</a></p>
+      <p>204B, Etim Inyang Crescent, Victoria Island, Lagos | 270, Borno Way, Ebute-Metta, Lagos</p>
+      <p>© 2026 IKAD HOTEL AND SUITES — Classic Luxury, Exclusive Privacy. All prices are inclusive of tax.</p>
+    </footer>
+  </div>
+</div>
+</body>
+</html>
